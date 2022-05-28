@@ -16,5 +16,22 @@ namespace WebServiceCliente
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            PalmaWs.WebServicePalma ws = new PalmaWs.WebServicePalma();
+
+            string n = textBox1.Text.Trim();
+
+            if (n.Length > 0)
+            {
+                string msg = ws.Saludo(n);
+                textBox2.Text = msg;
+            }
+            else
+            {
+                MessageBox.Show("Ingrese su nombre");
+            }
+        }
     }
 }
