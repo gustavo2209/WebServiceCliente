@@ -34,6 +34,13 @@ namespace WebServiceCliente
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtn1 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtn2 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.txtresultado = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -60,7 +67,7 @@ namespace WebServiceCliente
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(381, 21);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(112, 24);
+            this.button1.Size = new System.Drawing.Size(136, 24);
             this.button1.TabIndex = 2;
             this.button1.Text = "Ejecutar Ws";
             this.button1.UseVisualStyleBackColor = true;
@@ -70,15 +77,86 @@ namespace WebServiceCliente
             // 
             this.textBox2.Location = new System.Drawing.Point(26, 69);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(467, 20);
+            this.textBox2.Size = new System.Drawing.Size(491, 20);
             this.textBox2.TabIndex = 3;
+            // 
+            // txtn1
+            // 
+            this.txtn1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtn1.Location = new System.Drawing.Point(107, 124);
+            this.txtn1.Name = "txtn1";
+            this.txtn1.Size = new System.Drawing.Size(63, 22);
+            this.txtn1.TabIndex = 5;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(23, 127);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(78, 16);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Número 1:";
+            // 
+            // txtn2
+            // 
+            this.txtn2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtn2.Location = new System.Drawing.Point(280, 124);
+            this.txtn2.Name = "txtn2";
+            this.txtn2.Size = new System.Drawing.Size(63, 22);
+            this.txtn2.TabIndex = 7;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(196, 127);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(78, 16);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Número 2:";
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(381, 123);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(136, 24);
+            this.button2.TabIndex = 8;
+            this.button2.Text = "Ejecutar Ws Suma";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // txtresultado
+            // 
+            this.txtresultado.Location = new System.Drawing.Point(26, 168);
+            this.txtresultado.Name = "txtresultado";
+            this.txtresultado.Size = new System.Drawing.Size(491, 20);
+            this.txtresultado.TabIndex = 9;
+            // 
+            // label4
+            // 
+            this.label4.BackColor = System.Drawing.Color.LightCoral;
+            this.label4.Location = new System.Drawing.Point(23, 98);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(494, 10);
+            this.label4.TabIndex = 10;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::WebServiceCliente.Properties.Resources.back06;
-            this.ClientSize = new System.Drawing.Size(510, 104);
+            this.ClientSize = new System.Drawing.Size(535, 208);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.txtresultado);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.txtn2);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtn1);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
@@ -100,6 +178,13 @@ namespace WebServiceCliente
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtn1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtn2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox txtresultado;
+        private System.Windows.Forms.Label label4;
     }
 }
 

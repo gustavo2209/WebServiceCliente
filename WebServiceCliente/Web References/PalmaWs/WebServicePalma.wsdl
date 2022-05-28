@@ -26,6 +26,21 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="Suma">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="n1" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="n2" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SumaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SumaResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="HelloWorldSoapIn">
@@ -40,6 +55,12 @@
   <wsdl:message name="SaludoSoapOut">
     <wsdl:part name="parameters" element="tns:SaludoResponse" />
   </wsdl:message>
+  <wsdl:message name="SumaSoapIn">
+    <wsdl:part name="parameters" element="tns:Suma" />
+  </wsdl:message>
+  <wsdl:message name="SumaSoapOut">
+    <wsdl:part name="parameters" element="tns:SumaResponse" />
+  </wsdl:message>
   <wsdl:portType name="WebServicePalmaSoap">
     <wsdl:operation name="HelloWorld">
       <wsdl:input message="tns:HelloWorldSoapIn" />
@@ -48,6 +69,10 @@
     <wsdl:operation name="Saludo">
       <wsdl:input message="tns:SaludoSoapIn" />
       <wsdl:output message="tns:SaludoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Suma">
+      <wsdl:input message="tns:SumaSoapIn" />
+      <wsdl:output message="tns:SumaSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WebServicePalmaSoap" type="tns:WebServicePalmaSoap">
@@ -70,6 +95,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="Suma">
+      <soap:operation soapAction="http://tempuri.org/Suma" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="WebServicePalmaSoap12" type="tns:WebServicePalmaSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -84,6 +118,15 @@
     </wsdl:operation>
     <wsdl:operation name="Saludo">
       <soap12:operation soapAction="http://tempuri.org/Saludo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Suma">
+      <soap12:operation soapAction="http://tempuri.org/Suma" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

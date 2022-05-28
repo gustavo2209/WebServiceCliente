@@ -33,6 +33,8 @@ namespace WebServiceCliente.PalmaWs {
         
         private System.Threading.SendOrPostCallback SaludoOperationCompleted;
         
+        private System.Threading.SendOrPostCallback SumaOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -76,6 +78,9 @@ namespace WebServiceCliente.PalmaWs {
         
         /// <remarks/>
         public event SaludoCompletedEventHandler SaludoCompleted;
+        
+        /// <remarks/>
+        public event SumaCompletedEventHandler SumaCompleted;
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/HelloWorld", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
@@ -130,6 +135,37 @@ namespace WebServiceCliente.PalmaWs {
             if ((this.SaludoCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.SaludoCompleted(this, new SaludoCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Suma", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public int Suma(int n1, int n2) {
+            object[] results = this.Invoke("Suma", new object[] {
+                        n1,
+                        n2});
+            return ((int)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void SumaAsync(int n1, int n2) {
+            this.SumaAsync(n1, n2, null);
+        }
+        
+        /// <remarks/>
+        public void SumaAsync(int n1, int n2, object userState) {
+            if ((this.SumaOperationCompleted == null)) {
+                this.SumaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSumaOperationCompleted);
+            }
+            this.InvokeAsync("Suma", new object[] {
+                        n1,
+                        n2}, this.SumaOperationCompleted, userState);
+        }
+        
+        private void OnSumaOperationCompleted(object arg) {
+            if ((this.SumaCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.SumaCompleted(this, new SumaCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -200,6 +236,32 @@ namespace WebServiceCliente.PalmaWs {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((string)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    public delegate void SumaCompletedEventHandler(object sender, SumaCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.8.4084.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class SumaCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal SumaCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public int Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((int)(this.results[0]));
             }
         }
     }

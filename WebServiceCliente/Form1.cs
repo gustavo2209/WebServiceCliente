@@ -33,5 +33,12 @@ namespace WebServiceCliente
                 MessageBox.Show("Ingrese su nombre");
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            PalmaWs.WebServicePalma ws = new PalmaWs.WebServicePalma();
+
+            txtresultado.Text = "" + ws.Suma(Convert.ToInt32(txtn1.Text), Convert.ToInt32(txtn2.Text));
+        }
     }
 }
